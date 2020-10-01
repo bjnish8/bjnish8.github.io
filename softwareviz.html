@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="styles.css">
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	<script defer src="index.js" ></script>
+</head>
+<body>
+   <div style="display:flex;flex-direction:row;">
+      <div id="inputs">
+		<h1>Repo Dependancy Viewer</h1>
+         <div id="legend"><strong> Legend </strong></div>
+         <h5> Select a project </h5>
+         <div id="dropdowndiv" style="background-color:#a6a4a4;"> </div>
+            <h5> View Files or Methods </h5>
+            <div>
+            <button class="btn" id="filebtn" onclick='seeFileView(true)' disabled> Files View </button>
+            <button class="btn" id="methodbtn" onclick='seeMethodView(true)'> Methods View </button>
+            </div>
+            <h5>Select Strength: <span id="strengthval"> 1 </span> </h5>
+            <div>
+            <input id = "slider" style="width:100%;" type="range" min="1" max="51" step="1" value="1">
+            </div>
+         <div class="autocomplete">
+            <input id="myInput" type="text" name="myFile" placeholder="Search By File Name">
+            <button id="searchButton" onclick="searchItem()"> Search </button>
+         </div>
+      </div>
+      <div id="viz">
+         <div class="btnContainer">
+            <button class="btn" id="topbutton" onclick="gotoTop()"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg></button>
+            <button class="btn" id="backbutton" onclick="goBack()" disabled> <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z"></path></svg></button>
+         </div>
+          <div id= "colorbar">  </div>
+          <div class="zoombtn">
+          <button id="zoom-in">+</button>
+            <button id="zoom-out">-</button></div>
+            <p id = "info" > </p>
+            <div id="tables"> </div>
+         </div>
+      </div>
+</body>
+</html>
